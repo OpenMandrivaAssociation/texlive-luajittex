@@ -1,6 +1,6 @@
 Name:		texlive-luajittex
 Version:	62774
-Release:	1
+Release:	2
 Summary:	LuaTeX with just-in-time (jit) compiler, with and without HarfBuzz
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/luajittex
