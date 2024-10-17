@@ -3,7 +3,7 @@ Version:	62774
 Release:	2
 Summary:	LuaTeX with just-in-time (jit) compiler, with and without HarfBuzz
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/luajittex
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/luajittex
 License:	
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luajittex.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luajittex.doc.r%{version}.tar.xz
