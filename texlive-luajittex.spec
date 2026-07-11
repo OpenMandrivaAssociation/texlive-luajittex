@@ -1,40 +1,29 @@
-Name:		texlive-luajittex
-Version:	62774
-Release:	2
+%global tl_name luajittex
+%global tl_revision 78968
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	LuaTeX with just-in-time (jit) compiler, with and without HarfBuzz
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/luajittex
-License:	
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luajittex.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luajittex.doc.r%{version}.tar.xz
+URL:		https://www.ctan.org/pkg/luajittex
+License:	LPPL
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/luajittex.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/luajittex.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Requires:	texlive(cm)
+Requires:	texlive(etex)
+Requires:	texlive(hyph-utf8)
+Requires:	texlive(hyphen-base)
+Requires:	texlive(knuth-lib)
+Requires:	texlive(luajittex.bin)
+Requires:	texlive(luatex)
+Requires:	texlive(plain)
+Requires:	texlive(tex-ini-files)
+Requires:	texlive(unicode-data)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
+LuaTeX with just-in-time (jit) compiler, with and without HarfBuzz
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_datadir}
-cp -a texmf-dist %{buildroot}%{_datadir}
-
-%files
-%{_texmfdistdir}/texmf-dist
-%{_texmfdistdir}/texmf-dist/doc
-%doc %{_texmfdistdir}/texmf-dist/doc/man
-%doc %{_texmfdistdir}/texmf-dist/doc/man/man1
-%doc %{_texmfdistdir}/texmf-dist/doc/man/man1/luajittex.man1.pdf
-%doc %{_texmfdistdir}/texmf-dist/doc/man/man1/luajittex.1
-%doc %{_texmfdistdir}/texmf-dist/doc/man/man1/luajithbtex.man1.pdf
-%doc %{_texmfdistdir}/texmf-dist/doc/man/man1/luajithbtex.1
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
